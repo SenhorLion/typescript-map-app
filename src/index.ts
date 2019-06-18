@@ -5,18 +5,19 @@ import { CustomMap } from './components/Map';
 
 const user = createUser({ name: 'Lion' });
 const company = createCompany();
-const customMap = new CustomMap();
+const customMap = new CustomMap('map');
+// Add makrers to map
+customMap.addMarker(user);
+customMap.addMarker(company);
 
-console.log('@user', user);
-console.log('@company', company);
-
-// set data in client
+// set User and Company info in client
 const userUI = document.getElementById('user');
+const companyUI = document.getElementById('company');
 const titleUser = document.createElement('h2');
+const titleCompany = document.createElement('h2');
+
 titleUser.innerHTML = user.name;
 
-const companyUI = document.getElementById('company');
-const titleCompany = document.createElement('h2');
 titleCompany.innerHTML = company.name;
 
 companyUI.appendChild(titleCompany);
