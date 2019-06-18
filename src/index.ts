@@ -1,9 +1,11 @@
 console.log('Parcel locked n loaded');
 import { createUser } from './components/User';
 import { createCompany } from './components/Company';
+import { CustomMap } from './components/Map';
 
 const user = createUser({ name: 'Lion' });
 const company = createCompany();
+const customMap = new CustomMap();
 
 console.log('@user', user);
 console.log('@company', company);
