@@ -1,7 +1,9 @@
 import faker from 'faker';
+import { Mappable } from './Map';
 
-class Company {
+class Company implements Mappable {
   name: string;
+  strapLine: string;
   location: {
     lat: number;
     lng: number;
@@ -9,10 +11,19 @@ class Company {
 
   constructor() {
     this.name = faker.company.companyName();
+    this.strapLine = faker.company.catchPhrase();
     this.location = {
       lat: parseFloat(faker.address.latitude()),
       lng: parseFloat(faker.address.longitude()),
     };
+  }
+
+  markerContent() {
+    return `
+    <div>
+    <h1>${this.name}</h1>
+    <p>${this.strapLine}</p>
+    </div>`;
   }
 }
 
